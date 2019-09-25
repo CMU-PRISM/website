@@ -1,4 +1,4 @@
 # website
 Website repo for main website.
 
-curently in progress
+Currently very in progress
