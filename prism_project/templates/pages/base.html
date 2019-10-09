@@ -1,11 +1,13 @@
+{% load static from staticfiles %}
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- Grab CSS relevant to app -->
+        <link rel="stylesheet" type='text/css' href="{% static 'pages/main.css' %}">
+
+        <!-- Set page title according to page -->
         {% if title %}
             <title>PRISM - {{ title }}</title>
         {% else %}
@@ -18,10 +20,7 @@
 
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
+        <!-- Nav Bar -->       
         <header class="site-header">
             <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
                 <div class="container">
@@ -43,14 +42,15 @@
                 </div>
             </nav>
         </header>
-        <!--Since all page/ pages use the most of the same html file, we use inheritence.
-            With this block here, we can add unique items to the page and it will automatically
-            pull the content and add it to the html here.-->
+        
+        <!-- Page Content and Sidebar -->
         <main role="main" class="container">
             <div class="row">
+                <!-- Main Content -->
                 <div class="col-md-8">
                 {% block content %}{% endblock %}
                 </div>
+                <!-- Sidebar -->
                 <div class="col-md-4">
                     <div class="content-section">
                         <h3>Our Sidebar</h3>
