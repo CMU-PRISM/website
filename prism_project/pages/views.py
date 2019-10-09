@@ -8,16 +8,14 @@ from django.http import HttpResponse
 pages = [
     {
         'last_author': 'caser',
-        'title': 'homepage',
-        'content': 'first page',
+        'name': 'homepage',
         'date_created': '2019.9.26',
         'date_last_modified': '2019.9.26'
     },
 
     {
         'last_author': 'faker',
-        'title': 'homepage???? [not clickbait]',
-        'content': 'next page',
+        'name': 'homepage???? [not clickbait]',
         'date_created': '2019.9.27',
         'date_last_modified': '2019.10.3'
     }

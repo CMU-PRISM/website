@@ -1,11 +1,13 @@
-{% load static from staticfiles %}
+{% load static %}
+
 <!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <!-- Grab CSS relevant to app -->
-        <link rel="stylesheet" type='text/css' href="{% static 'pages/main.css' %}">
+        <link rel="stylesheet" type='text/css' href="{% static 'pages/pages_main.css' %}">
 
         <!-- Set page title according to page -->
         {% if title %}
@@ -24,14 +26,14 @@
         <header class="site-header">
             <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
                 <div class="container">
-                    <a class="navbar-brand mr-4" href="/">Django Blog</a>
+                    <a class="navbar-brand mr-4" href="/">PRISM</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <div class="navbar-nav mr-auto">
-                            <a class="nav-item nav-link" href="/">Home</a>
-                            <a class="nav-item nav-link" href="/about">About</a>
+                            <a class="nav-item nav-link" href="#">Pages</a>
+                            <a class="nav-item nav-link" href="#">About</a>
                         </div>
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">

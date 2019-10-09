@@ -1,15 +1,13 @@
-{% load static from staticfiles %}
+{% load static %}
+
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <!-- Grab CSS relevant to app -->
-        <link rel="stylesheet" type='text/css' href="{% static 'updates/main.css' %}">
+        <link rel="stylesheet" type='text/css' href="{% static 'updates/updates_main.css' %}">
 
         <!-- Set page title according to page -->
         {% if title %}
@@ -24,21 +22,18 @@
 
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
+
         <header class="site-header">
             <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
                 <div class="container">
-                    <a class="navbar-brand mr-4" href="{% url 'root'%}">PRISM</a>
+                    <a class="navbar-brand mr-4" href="/">PRISM</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <div class="navbar-nav mr-auto">
-                            <a class="nav-item nav-link" href="{% url 'root' %}"">Home</a>
-                            <a class="nav-item nav-link" href="{% url 'about' %}"">About</a>
+                            <a class="nav-item nav-link" href="#">Updates</a>
+                            <a class="nav-item nav-link" href="#">About</a>
                         </div>
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">

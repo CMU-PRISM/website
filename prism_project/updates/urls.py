@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     #pattern as follows path('subpage', views function, name)
-    path('', views.home, name='pages-home'),
+    path('', views.home, name='updates-home'),
 ]
