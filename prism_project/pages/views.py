@@ -15,18 +15,18 @@ pages = [
     },
 
     {
-        'last_author': 'caser',
+        'last_author': 'faker',
         'title': 'homepage???? [not clickbait]',
         'content': 'next page',
         'date_created': '2019.9.27',
-        'date_last_modified': '2019.9.27'
+        'date_last_modified': '2019.10.3'
     }
 ]
 
 # Take user requests to ./functionName
 def home(request):
     context = {
-        'posts': pages
+        'pages': pages
     }
     return render(request, 'pages/home.html', context)
 
