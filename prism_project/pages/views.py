@@ -28,10 +28,10 @@ def home(request):
     context = {
         'posts': pages
     }
-    return render(request, 'pages/home.html', context) #TODO: replace the text here with the proper html file
+    return render(request, 'pages/home.html', context)
 
 def about(request):
-    return render(request, 'pages/about.html', {'title':'About'}) #TODO: replace the text here with the proper html file
+    return render(request, 'pages/about.html', {'title':'About'})
 
 def resources(request):
     return HttpResponse('resources page') #TODO: replace the text here with the proper html file
@@ -46,10 +46,10 @@ def activism(request):
     return HttpResponse('activism') #TODO: replace the text here with the proper html file
 
 def social(request):
-    return HttpsResponse('social') #TODO: replace the text here with the proper html file
+    return HttpResponse('social') #TODO: replace the text here with the proper html file
 
 def supportGroups(request):
-    return HttpsResponse('support group page') #TODO: replace the text here with the proper html file
+    return HttpResponse('support group page') #TODO: replace the text here with the proper html file
 
 def contact(request):
-    return HttpsResponse('contact') #TODO: replace the text here with the proper html file
+    return HttpResponse('contact') #TODO: replace the text here with the proper html file
