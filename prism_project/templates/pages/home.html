@@ -2,11 +2,10 @@
 
 {% block content %}
     <h1> Pages Home </h1>
-    <h1> template in parent </h1>
-    <!--Django loop-->
+    <!-- Django loop -->
+    <h1>Page Directory<h1>
     {% for page in pages %}
-        <h1>{{ page.title }}</h1>
-        <p>Updated by {{ page.last_author }} on {{ page.last_modified }}</p>
+        <h3>{{ page.name }}</h3> Updated last by {{ page.last_author }} on {{ page.date_last_modified }}
         <p>{{ page.content }}</p>
     {% endfor %}
 {% endblock content%}
