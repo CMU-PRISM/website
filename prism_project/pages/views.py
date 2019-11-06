@@ -8,30 +8,28 @@ from django.http import HttpResponse
 pages = [
     {
         'last_author': 'caser',
-        'title': 'homepage',
-        'content': 'first page',
+        'name': 'homepage',
         'date_created': '2019.9.26',
         'date_last_modified': '2019.9.26'
     },
 
     {
-        'last_author': 'caser',
-        'title': 'homepage???? [not clickbait]',
-        'content': 'next page',
+        'last_author': 'faker',
+        'name': 'homepage???? [not clickbait]',
         'date_created': '2019.9.27',
-        'date_last_modified': '2019.9.27'
+        'date_last_modified': '2019.10.3'
     }
 ]
 
 # Take user requests to ./functionName
 def home(request):
     context = {
-        'posts': pages
+        'pages': pages
     }
-    return render(request, 'pages/home.html', context) #TODO: replace the text here with the proper html file
+    return render(request, 'pages/home.html', context)
 
 def about(request):
-    return render(request, 'pages/about.html', {'title':'About'}) #TODO: replace the text here with the proper html file
+    return render(request, 'pages/about.html', {'title':'About'})
 
 def resources(request):
     return HttpResponse('resources page') #TODO: replace the text here with the proper html file
@@ -46,10 +44,10 @@ def activism(request):
     return HttpResponse('activism') #TODO: replace the text here with the proper html file
 
 def social(request):
-    return HttpsResponse('social') #TODO: replace the text here with the proper html file
+    return HttpResponse('social') #TODO: replace the text here with the proper html file
 
 def supportGroups(request):
-    return HttpsResponse('support group page') #TODO: replace the text here with the proper html file
+    return HttpResponse('support group page') #TODO: replace the text here with the proper html file
 
 def contact(request):
-    return HttpsResponse('contact') #TODO: replace the text here with the proper html file
+    return HttpResponse('contact') #TODO: replace the text here with the proper html file

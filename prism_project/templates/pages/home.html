@@ -1,0 +1,11 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+    <h1> Pages Home </h1>
+    <!-- Django loop -->
+    <h1>Page Directory<h1>
+    {% for page in pages %}
+        <h3>{{ page.name }}</h3> Updated last by {{ page.last_author }} on {{ page.date_last_modified }}
+        <p>{{ page.content }}</p>
+    {% endfor %}
+{% endblock content%}

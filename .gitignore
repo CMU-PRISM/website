@@ -1,2 +1,11 @@
-env/ 
-vscode/
+# do not add the contents of these folders
+env/
+.vscode/
+__pycache__/
+*.py[cod]
+.env
+
+
+# SQLite database files
+
+*.sqlite3
