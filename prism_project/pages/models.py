@@ -9,4 +9,6 @@ class Page(models.Model):
     content = models.TextField()
     date_modified = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete="[USER_DELETED]")
-
+    
+    def __str__(self):
+        return "%s by %s" % (self.title, self.author)
