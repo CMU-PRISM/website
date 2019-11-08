@@ -5,7 +5,7 @@
     <!-- Django loop -->
     <h1>Page Directory<h1>
     {% for page in pages %}
-        <h3>{{ page.name }}</h3> Updated last by {{ page.last_author }} on {{ page.date_last_modified }}
+        <h3>{{ page.name }}</h3> Updated last by {{ page.author }} on {{ page.date_modified }}
         <p>{{ page.content }}</p>
     {% endfor %}
 {% endblock content%}
