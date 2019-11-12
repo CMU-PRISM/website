@@ -6,17 +6,23 @@ from .models import Page
 # Add html not in a file using HttpResponse(html)
 
 # Take user requests to ./functionName
-def home(request): # ./pages/
+def index(request): # ./pages/
     context = {
         'pages': Page.objects.all()
     }
-    return render(request, 'pages/home.html', context)
+    return render(request, 'pages/index.html', context)
 
 def about(request): # ./pages/about
-    return render(request, 'pages/about.html', {'title':'About'})
+    context = {
+        'page' : Page.objects.get(title="About")
+    }
+    return render(request, 'pages/about.html', context)
 
 def resources(request): # ./pages/resources
-    return HttpResponse('resources page') #TODO: replace the text here with the proper html file
+    context = {
+        'page' : Page.objects.get(title="Resources")
+    }
+    return render(request, 'pages/resources', context) #TODO: replace the text here with the proper html file
 
 def officeHours(request):
     return HttpResponse('office-hours page') #TODO: replace the text here with the proper html file
