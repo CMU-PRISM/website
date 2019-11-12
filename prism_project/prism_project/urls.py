@@ -21,4 +21,5 @@ urlpatterns = [
     path('pages/', include('pages.urls')),
     path('updates/', include('updates.urls')),
     path('markdownx/', include('markdownx.urls')),
+    path('', include('core.urls')),
 ]
