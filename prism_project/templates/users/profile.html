@@ -1,0 +1,15 @@
+{% extends 'users/users-base.html' %}
+
+{% block title %}User Profile - {{ user.get_id }}{% endblock title %}
+
+{% block 'page-content' %}
+    {% if user.is_authenticated %}
+        <p>User: {{ user.get_full_name }} logged in.</p>
+        <p><a href="{% url 'core-index' %}">homepage</a></p>
+        <p><a href="{% url 'logout' %}">logout</a></p>
+
+    {% else %}
+        <a href="{% url 'login' %}">login</a> |
+        <a href="{% url 'signup' %}">signup</a>
+    {% endif %}
+{% endblock 'page-content' %}

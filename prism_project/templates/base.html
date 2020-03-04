@@ -6,25 +6,29 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <!-- Grab CSS relevant to app -->
-        <link rel="stylesheet" type='text/css' href="{% static 'css/main.css' %}">
-
         <!-- Set page title according to page -->
-        {% if title %}
-            <title>PRISM - {{ title }}</title>
-        {% else %}
-            <title>PRISM Pages Directory</title>
-        {% endif %}
-        <meta name="description" content="">
+        <title>{% block title %} PRISM {% endblock title %}</title>
+        <meta name="description" content="{% block description %} PRISM is CMU's student-led LGBTQ+ organization. We're based in room 335 of the Cohon University Center. Come stop on by!{% endblock description%}">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <!-- App-specified CSS-->
+        <link rel="stylesheet" href="{% block stylesheet %} {% static 'core.css' %} {% endblock stylesheet %}">
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     </head>
+
     <body>
         <!-- Nav Bar -->       
         <header class="site-header">
-            <nav class="navbar navbar-expand-md navbar-dark bg-steel">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                 <div class="container">
                     <a class="navbar-brand mr-4" href="/">PRISM</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,12 +54,13 @@
             <div class="row">
                 <!-- Main Content -->
                 <div class="col-md-8">
-                {% block content %}{% endblock %}
+                {% block 'app-content' %}{% endblock 'app-content' %}
                 </div>
                 <!-- Sidebar -->
-                <div class="col-md-4">
+                <!-- Hide sidebar on smaller screens -->
+                <div class="col-md-4 d-none d-lg-block">
                     <div class="content-section">
-                        <h3>Our Sidebar</h3>
+                        <h3>The Sidebar</h3>
                         <p class='text-muted'>You can put any information here you'd like.
                         <ul class="list-group">
                             <li class="list-group-item list-group-item-light">Latest Posts</li>
@@ -68,11 +73,5 @@
                 </div>
             </div>
         </main>
-
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     </body>
 </html>

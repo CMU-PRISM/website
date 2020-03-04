@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pages',
     'updates',
     'core',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +84,8 @@ DATABASES = {
     }
 }
 
+# User Models
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

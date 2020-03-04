@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Prism - Page Directory{% endblock title %}
+
+{% block description %}A list of all currently available pages.{% endblock description %}
+
+{% block stylesheet %}{% static 'css/pages.css' %}{% endblock stylesheet%}
+
+{% block 'app-content' %}
+    <body>        
+        <!-- Page Content -->
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-md-8">
+            {% block 'page-content' %}{% endblock 'page-content' %}
+            </div>
+        </div>
+    </body>
+{% endblock 'app-content' %}
