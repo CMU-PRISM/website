@@ -40,9 +40,16 @@
                             <a class="nav-item nav-link" href="{% url 'pages-about' %}">About</a>
                         </div>
                         <!-- Navbar Right Side -->
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="#">Login</a>
-                            <a class="nav-item nav-link" href="#">Register</a>
+                        <div class="navbar-nav" style="white-space:nowrap">
+                            {% if user.is_active %}
+                                <span style="color:white">Welcome, </span><a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.get_first_name }}</a>
+                                {% if user.is_staff %}
+                                    <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
+                                {% endif %}
+                                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -54,6 +61,7 @@
             <div class="row">
                 <!-- Main Content -->
                 <div class="col-md-8">
+                <br>
                 {% block 'app-content' %}{% endblock 'app-content' %}
                 </div>
                 <!-- Sidebar -->
