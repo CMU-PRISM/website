@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}BlockShare - Users Crashpage{% endblock title %}
+
+{% block description %}{% endblock description %}
+
+{% block stylesheet %}{% static 'css/users.css' %}{% endblock stylesheet%}
+
+{% block 'app-content' %}
+    <body>        
+        <!-- Page Content -->
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-md-8">
+            {% block 'page-content' %}{% endblock %}
+            </div>
+        </div>
+    </body>
+{% endblock 'app-content' %}

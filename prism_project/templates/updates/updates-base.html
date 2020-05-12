@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} PRISM - Updates Directory {% endblock title %}
+
+{% block description %}Directory of all currentlt available updates of days past.{% endblock description%}
+
+{% block stylesheet %}{% static 'css/updates.css' %}{% endblock stylesheet%}
+
+{% block 'app-content' %}
+    <body>        
+        <!-- Page Content -->
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-md-8">
+            {% block 'page-content' %}{% endblock 'page-content' %}
+            </div>
+        </div>
+    </body>
+{% endblock 'app-content' %}

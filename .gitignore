@@ -1,6 +1,8 @@
 # do not add the contents of these folders
 env/
 .vscode/
+vscode/
+migrations/
 __pycache__/
 *.py[cod]
 .env

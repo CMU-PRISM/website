@@ -1,6 +1,6 @@
-{% extends "pages/base.html" %}
+{% extends "pages/pages-base.html" %}
 
-{% block content %}
+{% block 'page-content' %}
     <h1> Pages Home </h1>
     <!-- Django loop -->
     <h1>Page Directory<h1>
@@ -8,4 +8,4 @@
         <h3>{{ page.title }}</h3> Updated last by {{ page.author }} on {{ page.date_modified }}
         <p>{{ page.formatted_markdown|safe }}</p>
     {% endfor %}
-{% endblock content%}
+{% endblock 'page-content' %}

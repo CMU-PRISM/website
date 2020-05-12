@@ -1,5 +1,11 @@
-{% extends "pages/base.html" %}
+{% extends "core/core-base.html" %}
 
-{% block content %}
-    <h1> Welcome to PRISM lol </h1>
-{% endblock content%}
+{% block title %} PRISM {% endblock title %}
+
+{% block description %}{% endblock description %}
+
+{% block 'page-content' %}
+    <h1> Welcome to PRISM! </h1>
+    <p> This should be the first page people see when visiting our site, so it should look nice! </p>
+    <p> Each django 'app' uses a different base.html file, so each can be re-styled to fit their own needs. CSS files are also sepparated by app, so each can look drastically different if need be! </p>
+{% endblock 'page-content' %}
