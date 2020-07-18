@@ -11,3 +11,6 @@ __pycache__/
 # SQLite database files
 
 *.sqlite3
+
+# secretkey is supposed to be a secret
+secretkey.txt
