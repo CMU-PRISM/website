@@ -14,30 +14,17 @@ def index(request): # ./pages/
 
 def about(request): # ./pages/about
     context = {
-        'page' : Page.objects.get(title="About")
+        'page': Page.objects.get(title="about")
     }
     return render(request, 'pages/about.html', context)
 
-def resources(request): # ./pages/resources
+def page_viewer(request, id=-1, slug=""):
+    # do nothing with slug, purely for human eyes
+    # default to page's 404
+    if id == -1:
+        return render(request, 'page/404.html')
     context = {
-        'page' : Page.objects.get(title="Resources")
+        'page': Page.objects.get(id=id)
     }
-    return render(request, 'pages/resources', context) #TODO: replace the text here with the proper html file
-
-def officeHours(request):
-    return HttpResponse('office-hours page') #TODO: replace the text here with the proper html file
-
-def activities(request):
-    return HttpResponse('activities page') #TODO: replace the text here with the proper html file
-
-def activism(request):
-    return HttpResponse('activism') #TODO: replace the text here with the proper html file
-
-def social(request):
-    return HttpResponse('social') #TODO: replace the text here with the proper html file
-
-def supportGroups(request):
-    return HttpResponse('support group page') #TODO: replace the text here with the proper html file
-
-def contact(request):
-    return HttpResponse('contact') #TODO: replace the text here with the proper html file
+    #return render(request, 'pages/about.html', context)
+    return render(request, 'pages/page-view.html', context)

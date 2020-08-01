@@ -1,11 +1,10 @@
 {% extends "pages/pages-base.html" %}
 
 {% block 'page-content' %}
-    <h1> Pages Home </h1>
-    <!-- Django loop -->
     <h1>Page Directory<h1>
     {% for page in pages %}
-        <h3>{{ page.title }}</h3> Updated last by {{ page.author }} on {{ page.date_modified }}
+        <h3><a href="{{ page.id }}/{{ page.slug_as_text }}">{{ page.title }}</a></h3>
+        Updated last by {{ page.author }} on {{ page.date_modified }}
         <p>{{ page.desc }}</p>
     {% endfor %}
 {% endblock 'page-content' %}

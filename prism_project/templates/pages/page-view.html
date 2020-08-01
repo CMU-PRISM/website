@@ -1,9 +1,10 @@
-{% extends "pages/pages-base.html"%}
+{% extends "pages/pages-base.html" %}
 
-{% block title %}PRISM - {{ page.title}}{% endblock title %}
+{% block title %}PRISM - {{ page.title }}{% endblock title %}
 
 {% block 'page-content' %}
     <h3>{{ page.title }}</h3>
     <p>Updated last by {{ page.author }} on {{ page.date_modified }}</p>
+    <!-- Displays content parsing markdown into html. Makes writing pages easier for end users. -->
     <p>{{ page.formatted_markdown|safe }}</p>
 {% endblock 'page-content' %}
