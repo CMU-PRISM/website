@@ -20,13 +20,13 @@ class UserManager(BaseUserManager):
         and password.
         """
         if not username:
-            raise ValueError(_('Users must have an andrew id'))
+            raise ValueError(_('Users must provide an andrew id or other username'))
         if not email:
-            raise ValueError(_('Users must have an email address'))
+            raise ValueError(_('Users must provide an email address'))
         if not first_name:
-            raise ValueError(_('Users must have a first name'))
+            raise ValueError(_('Users must provide a first name'))
         if not last_name:
-            raise ValueError(_('Users must have a last name'))
+            raise ValueError(_('Users must provide a last name'))
 
         user = self.model(
             username = username,
@@ -64,7 +64,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # last_login field by AbstractBaseUser
     first_name = models.CharField(_('first name'), max_length = 30, blank = True)
     last_name = models.CharField(_('last name'), max_length = 30, blank = True)
-    username = models.CharField(_('andrew id'), max_length = 30, blank = True)
+    username = models.CharField(_('username'), max_length = 30, blank = True)
 
     is_active = models.BooleanField(
         _('active'),
