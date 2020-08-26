@@ -11,7 +11,7 @@ class Update(models.Model):
     date_modified = models.DateTimeField(default=timezone.now) # only keep the date and time of the most recent page update
     
     def __str__(self): # give string representation of the page object to be title and description
-        return "%s %s %s %s %s" % (self.title, self.content, self.date_modified)
+        return "%s | Last Modified: %s" % (self.title, self.date_modified)
     
     def __eq__(self, other):
         return self.title == other.title and self.content == other.content and self.date_modified == other.date_modified

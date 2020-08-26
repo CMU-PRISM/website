@@ -12,7 +12,7 @@ class Page(models.Model):
     desc = models.TextField(default="default description", max_length=256) # short description of page for directory
     
     def __str__(self): # give string representation of the page object to be title and description
-        return "%s %s %s %s %s" % (self.title, self.content, self.date_modified, self.desc)
+        return "%s | Last modified: %s | %s" % (self.title, self.date_modified, self.desc)
     
     def __eq__(self, other):
         return self.title == other.title and self.content == other.content and self.date_modified == other.date_modified and self.desc == other.desc
