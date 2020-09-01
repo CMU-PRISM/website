@@ -133,6 +133,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
         permissions = (
             ('can_open', "Can mark room as open/closed"),
-            ('can_write_page', 'Can create and edit pages'),
-            ('can_write_update', 'Can create and edit updates'),
         )
