@@ -4,4 +4,4 @@ Currently a work in progress. Visit us at our [website](https://prism.andrew.cmu
 
 Please visit [tinyurl.com/CMUPRISM](http://tinyurl.com/CMUPRISM) to apply to join our dev team!
 
-Questions? Contact the project head at itscaseyr@gmail.com
+Questions? Contact our project head at [itscaseyr@gmail.com](mailto:itscaseyr@gmail.com).
