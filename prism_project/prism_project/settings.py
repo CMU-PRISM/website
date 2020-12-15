@@ -122,9 +122,10 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static-root') # temp for dev testing
 # TODO: Uncomment this when this is on the cc debian system
 #STATIC_ROOT= '/var/www/static-root/'
 
@@ -132,7 +133,7 @@ MEDIA_URL = '/media/'
 # TODO: Uncomment this when this is on the cc debian system
 #MEDIA_ROOT = '/var/www/media-root/'
 
-# use in prod
+# use in production
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets'),
 ]

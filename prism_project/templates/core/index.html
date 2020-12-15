@@ -1,11 +1,29 @@
+<!-- Django code to add this html to core-base.html -->
 {% extends "core/core-base.html" %}
 
 {% block title %} PRISM {% endblock title %}
 
-{% block description %}{% endblock description %}
-
 {% block 'page-content' %}
-    <h1> Welcome to PRISM! </h1>
-    <p> This should be the first page people see when visiting our site, so it should look nice! </p>
-    <p> Each django 'app' uses a different base.html file, so each can be re-styled to fit their own needs. CSS files are also sepparated by app, so each can look drastically different if need be! </p>
+    <div class="row">
+        <div class="col-md-8">
+            <h1> Welcome to PRISM! </h1>
+            <p> This should be the first page people see when visiting our site, so it should look nice! </p>
+            <p> Each django 'app' uses a different base.html file, so each can be re-styled to fit their own needs. CSS files are also sepparated by app, so each can look drastically different if need be! </p>
+        </div> <!-- End column -->
+
+        <!-- Hide sidenav on medium or smaller screens -->
+        <div class="col-md-4 d-none d-lg-block">
+            <ul id="sidenav" class="list-group">
+                <li class="list-group-item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{% url 'pages-index' %}">Pages</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/pages/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 {% endblock 'page-content' %}
