@@ -33,11 +33,12 @@
     <body>
         <!-- Nav Bar -->       
         <header class="site-header">
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-md navbar-dark bg-eBlue">
                 <div class="container">
                     <a class="navbar-brand mr-4" href="/">
-                        <img src="{% static 'img/prism_logo_640x640.png' %}" alt="PRISM">
+                        <img id="brand-img" src="{% static 'img/prism_logo_640x640.png' %}" alt="PRISM Dog Logo"><span>PRISM</span>
                     </a>
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -49,9 +50,9 @@
                         </div>
 
                         <!-- Navbar Right Side -->
-                        <div class="navbar-nav">
+                        <nav class="navbar-nav">
                             {% if user.is_active %}
-                                <span style="color:white">Welcome, </span><a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.get_first_name }}</a>
+                                <p><span style="color:white">Welcome, </span><a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.get_first_name }}</a></p>
                                 {% if user.is_staff %}
                                     <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
                                 {% endif %}
@@ -59,8 +60,9 @@
                             {% else %}
                                 <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                             {% endif %}
-                        </div>
+                        </nav>
                     </div>
+
                 </div>
             </nav>
         </header>
