@@ -6,7 +6,6 @@ from django.shortcuts import render
 def index(request): # homepage
     # context being the most recent update
     context = {
-        'update': Update.objects.all()
+        'update': Update.objects.order_by('-date_modified')[0]
     }
-    print(context)
     return render(request, 'core/index.html', context)

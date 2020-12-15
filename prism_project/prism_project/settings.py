@@ -125,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static-root') #TODO: DEV ONLY
 # TODO: Uncomment this when this is on the cc debian system
 #STATIC_ROOT= '/var/www/static-root/'
 

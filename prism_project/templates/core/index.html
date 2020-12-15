@@ -30,10 +30,10 @@
     <div class='row'>
         <!-- Column spans whole row -->
         <div class="col-12">
-            <h3>{{ update.pretty_title }}</h3>
+            <h4>{{ update.pretty_title }}</h4>
 
             <!-- Render markdown into html. Update from admin controls. -->
-            <p>{{ update.formatted_markdown }}</p>
+            <p>{{ update.formatted_markdown|safe }}</p>
         </div>
     </div>
 {% endblock 'page-content' %}

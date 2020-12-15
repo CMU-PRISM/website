@@ -1,11 +1,11 @@
-<!-- Django code to add this html to pages-base.html -->
+<!-- Django code to add this html to updates-base.html -->
 {% extends "updates/updates-base.html" %}
 
-{% block title %}PRISM - {{ page.title }}{% endblock title %}
+{% block title %}PRISM - {{ update.title }}{% endblock title %}
 
 {% block 'update-content' %}
     <h3>{{ update.pretty_title }}</h3>
     
-    <!-- Displays content parsing markdown into html. Makes writing pages easier for end users. -->
+    <!-- Displays content parsing markdown into html. Makes writing updates easier for end users. -->
     <p>{{ update.formatted_markdown|safe }}</p>
 {% endblock 'update-content' %}
