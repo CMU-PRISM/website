@@ -5,9 +5,7 @@
 
 {% block title %} PRISM - Updates Directory {% endblock title %}
 
-{% block description %}Directory of all currentlt available updates of days past.{% endblock description%}
-
-{% block stylesheet %}{% static 'css/updates.css' %}{% endblock stylesheet%}
+{% block description %}Directory of all currently available updates of days past.{% endblock description%}
 
 {% block 'app-content' %}
     <body>        
@@ -15,7 +13,7 @@
         <div class="row">
             <!-- Main Content -->
             <div class="col-md-8">
-            {% block 'page-content' %}{% endblock 'page-content' %}
+            {% block 'update-content' %}{% endblock 'update-content' %}
             </div>
         </div>
     </body>

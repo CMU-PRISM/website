@@ -4,7 +4,7 @@
 {% block title %} PRISM {% endblock title %}
 
 {% block 'page-content' %}
-    <div class="row">
+    <div class='row'>
         <div class="col-md-8">
             <h1> Welcome to PRISM! </h1>
             <p> This should be the first page people see when visiting our site, so it should look nice! </p>
@@ -24,6 +24,16 @@
                     <a href="/pages/about">About</a>
                 </li>
             </ul>
+        </div>
+    </div> <!-- End row -->
+
+    <div class='row'>
+        <!-- Column spans whole row -->
+        <div class="col-12">
+            <h3>{{ update.pretty_title }}</h3>
+
+            <!-- Render markdown into html. Update from admin controls. -->
+            <p>{{ update.formatted_markdown }}</p>
         </div>
     </div>
 {% endblock 'page-content' %}

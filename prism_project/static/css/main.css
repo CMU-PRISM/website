@@ -89,12 +89,12 @@
 
         a:visited {
             color: var(--umber);
-            border-bottom: 1px solid var(--umber);
+            border-bottom-color: var(--umber);
         }
 
         a:focus, a:hover {
             color: var(--khaki-web);
-            border-bottom: 1px solid var(--khaki-web);
+            border-bottom-color: var(--khaki-web);
             text-decoration: none;
         }
 
@@ -133,6 +133,23 @@
         }
 
     /* ------------------------------------------------------
+        1.4. Custom Classes
+    ------------------------------------------------------ */
+
+        .btn-eBlue {
+            background-color: var(--eBlue);
+        }
+
+        .btn-eBlue:hover {
+            background-color: #496071;
+        }
+
+        .btn-eBlue a, .btn-eBlue a:visited, .btn-eBlue a:hover, .btn-eBlue a:active {
+            color: white;
+            border: 0;
+        }
+
+    /* ------------------------------------------------------
         1.5. Transitions
     ------------------------------------------------------ */
 
@@ -152,7 +169,6 @@
         .navbar {
             padding: 0 2vw;
             margin-bottom: 1em;
-            vertical-align: middle;
         }
 
         .bg-eBlue {
@@ -181,6 +197,18 @@
 
         header a, header a:visited , header a:focus, header a:hover {
             border: none;
+        }
+
+        header p, #user-link {
+            display: inline-block;
+            margin: 0;
+        }
+
+        .navbar-brand span {
+            font-size: 1.5em;
+            font-weight: 300;
+
+            vertical-align: middle;
         }
 
 /* ------------------------------------------------------
