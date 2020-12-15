@@ -116,15 +116,16 @@ TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static-root') #TODO: DEV ONLY
 # TODO: Uncomment this when this is on the cc debian system
 #STATIC_ROOT= '/var/www/static-root/'
 
@@ -132,7 +133,7 @@ MEDIA_URL = '/media/'
 # TODO: Uncomment this when this is on the cc debian system
 #MEDIA_ROOT = '/var/www/media-root/'
 
-# use in prod
+# use in production, not in dev
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'static'),
 ]

@@ -4,6 +4,7 @@ from django.core.validators import validate_unicode_slug
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 from prism_project import settings
+from string import capwords
 
 class Page(models.Model):
     title = models.CharField(max_length=64, unique=True, validators=[validate_unicode_slug]) # title of page
@@ -21,4 +22,9 @@ class Page(models.Model):
         return markdownify(self.content)
     
     def pretty_title(self):
-        return self.title.replace("-", " ").replace("_", " ").capitalize().strip()
+        return capwords(self.title.replace("-", " ").replace("_", " ").strip())
+
+    # Overwrite save to shift all title text to lowercase
+    def save(self, *args, **kwargs):
+        self.title = self.title.lower()
+        return super(Page, self).save(*args, **kwargs)

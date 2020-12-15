@@ -6,6 +6,8 @@ migrations/
 __pycache__/
 *.py[cod]
 .env
+static-root/
+media-root/
 
 
 # SQLite database files
