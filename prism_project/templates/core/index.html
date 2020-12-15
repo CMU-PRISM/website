@@ -32,10 +32,13 @@
                     <a href="/">Home</a>
                 </li>
                 <li class="list-group-item">
-                    <a href="{% url 'pages-index' %}">Pages</a>
+                    <a href="{% url 'pages-index' %}">Page Directory</a>
                 </li>
                 <li class="list-group-item">
-                    <a href="/pages/about">About</a>
+                    <a href="{% url 'updates-index' %}">Update History</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/pages/about">About Us</a>
                 </li>
             </ul>
         </div>
