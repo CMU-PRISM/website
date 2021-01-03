@@ -8,9 +8,13 @@
 {% block 'page-content' %}
     <div class='row'>
         <div class="col-md-8">
-            <h1> Welcome to PRISM! </h1>
-            <p> This should be the first page people see when visiting our site, so it should look nice! </p>
-            <p> Each django 'app' uses a different base.html file, so each can be re-styled to fit their own needs. CSS files are also sepparated by app, so each can look drastically different if need be! </p>
+            <div id="welcome">
+                <h1> Welcome to PRISM! </h1>
+                <p> This should be the first page people see when visiting our site, so it should look nice! </p>
+                <p> Each django 'app' uses a different base.html file, so each can be re-styled to fit their own needs. CSS files are also sepparated by app, so each can look drastically different if need be! </p>
+            </div> <!-- End welcome -->
+
+            <hr> <!-- Divide content -->
 
             <div id="newest-update">
                 <h4>{{ update.pretty_title }}</h4>
@@ -40,8 +44,8 @@
                 <li class="list-group-item">
                     <a href="/pages/about">About Us</a>
                 </li>
-            </ul>
-        </div>
+            </ul> <!-- End sidenav-->
+        </div> <!-- End column -->
 
     </div> <!-- End row -->
 
