@@ -27,9 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'markdownx',
+    'core',
     'pages',
     'updates',
-    'core',
     'users',
 ]
 
