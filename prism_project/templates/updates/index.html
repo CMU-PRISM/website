@@ -1,0 +1,11 @@
+<!-- Django code to add this html to updates-base.html -->
+{% extends "updates/updates-base.html" %}
+
+{% block 'update-content' %}
+    <h1>Page Directory<h1>
+    {% for update in updates %}
+        <h3 style="display:inline">{{ update.pretty_title }}</h3> | Posted: {{ update.date_modified }}
+        <p>{{ update.formatted_markdown|safe }}</p>
+        <hr style="border-color:#597081">
+    {% endfor %}
+{% endblock 'update-content' %}

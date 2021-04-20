@@ -1,0 +1,16 @@
+<!-- Django code to add this html to ../base.html -->
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} PRISM - Page Directory {% endblock title %}
+
+{% block description %}A list of all currently available pages.{% endblock description %}
+
+<div class="row">
+    <div class="col-12">
+        {% block 'app-content' %}
+            {% block 'page-content' %}{% endblock 'page-content' %}
+        {% endblock 'app-content' %}
+    </div>
+</div>

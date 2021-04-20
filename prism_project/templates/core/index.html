@@ -1,0 +1,57 @@
+<!-- Django code to add this html to core-base.html -->
+{% extends "core/core-base.html" %}
+
+{% load static %}
+
+{% block title %} PRISM {% endblock title %}
+
+{% block 'page-content' %}
+    <div class='row'>
+        <div class="col-md-8">
+            <div id="welcome">
+                <h1> Welcome to PRISM! </h1>
+                <p> This should be the first page people see when visiting our site, so it should look nice! </p>
+                <p> Each django 'app' uses a different base.html file, so each can be re-styled to fit their own needs. CSS files are also sepparated by app, so each can look drastically different if need be! </p>
+            </div> <!-- End welcome -->
+
+            <hr> <!-- Divide content -->
+
+            <div id="newest-update">
+                <h4>{{ update.pretty_title }}</h4>
+
+                <!-- Render markdown into html. Update from admin controls. -->
+                <p>{{ update.formatted_markdown|safe }}</p>
+            </div>
+        </div> <!-- End column -->
+
+        <!-- Hide sidenav on medium or smaller screens -->
+        <div class="col-md-4">
+            <div id="index-img" class="d-none d-md-block"></div>
+            <div id="door-status-indicator">
+                <p>PRISM is located in 'SoHo', room 335 of the Cohen University Center. Come stop on by!</p>
+                <p>SoHo is currently <span id="door-status">{{ door }}</span></p>
+            </div>
+            <ul id="sidenav" class="list-group d-none d-md-block">
+                <li class="list-group-item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{% url 'pages-index' %}">Page Directory</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{% url 'updates-index' %}">Update History</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/pages/about">About Us</a>
+                </li>
+            </ul> <!-- End sidenav-->
+        </div> <!-- End column -->
+
+    </div> <!-- End row -->
+
+{% endblock 'page-content' %}
+
+{% block 'js' %}
+    <script src="{% static 'js/img-adjust.js' %}"></script>
+    <script src="{% static 'js/door-box.js' %}"></script>
+{% endblock 'js' %}

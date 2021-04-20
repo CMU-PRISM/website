@@ -1,0 +1,82 @@
+<!-- Django code to load all assets -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Set page title according to page. PRISM by default, or as set by the title block -->
+        <title>{% block title %} PRISM {% endblock title %}</title>
+        <meta name="description" content="{% block description %} PRISM is CMU's student-led LGBTQ+ organization. We're based in room 335 of the Cohon University Center. Come stop on by!{% endblock description%}">
+        
+        <!-- Resize width to device width. Fixes many issues with screen sizes. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Favicons -->
+        <link href="{% static 'img/prismdoglowresNOBG.ico' %}" rel="shortcut icon" type="image/png">
+        <link href="{% static 'img/prismdoglowresNOBG.png' %}" rel="apple-touch-icon-precomposed">
+
+        <!-- Bootstrap CSS -->
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+        <!-- Homebrew CSS -->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+
+    <body>
+        <!-- Nav Bar -->       
+        <header class="site-header">
+            <nav class="navbar navbar-expand-md navbar-dark bg-eBlue">
+                <div class="container">
+                    <a class="navbar-brand mr-4" href="/">
+                        <img id="brand-img" src="{% static 'img/prism_logo_640x640.png' %}" alt="PRISM Dog Logo"><span>PRISM</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarToggle">
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link" href="{% url 'pages-index' %}">Pages</a>
+                            <a class="nav-item nav-link" href="/pages/about">About</a>
+                        </div>
+
+                        <!-- Navbar Right Side -->
+                        <nav class="navbar-nav">
+                            {% if user.is_active %}
+                                <span style="color:white;">Welcome, <a id="user-link" class="nav-item nav-link" href="{% url 'profile' %}">{{ user.get_first_name }}</a></span>
+                                {% if user.is_staff %}
+                                    <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
+                                {% endif %}
+                                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                            {% endif %}
+                        </nav>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Page Content and Sidebar -->
+        <main role="main" class="container">
+            {% block 'app-content' %}
+                <div id="default-content">
+                    <!-- This will only show if a page's content block fails to load. Effectively a 404 div. -->
+                    <h1>Error loading page content. Please contact our site webadmin.</h1>
+                </div>
+            {% endblock 'app-content' %}
+        </main>
+
+        {% block 'js' %}{% endblock 'js' %}
+    </body>
+</html>

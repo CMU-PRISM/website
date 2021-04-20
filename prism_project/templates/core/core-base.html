@@ -1,0 +1,11 @@
+<!-- Django code to add this html to ../base.html -->
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} PRISM Home {% endblock title %}
+
+{% block 'app-content' %}
+    <!-- Page Content -->
+    {% block 'page-content' %}{% endblock %}
+{% endblock 'app-content' %}

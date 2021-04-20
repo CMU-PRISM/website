@@ -1,0 +1,28 @@
+<!-- Django code to add this html to users-base.html -->
+{% extends 'users/users-base.html' %}
+
+{% block title %}User Profile - {{ user.get_id }}{% endblock title %}
+
+{% block 'page-content' %}
+
+    {% if user.is_authenticated %}
+        <p>{{ user.get_full_name }} is currently logged in.</p>
+
+    {% if user.is_staff or user.is_superuser%}
+        <p class="btn btn-eBlue">
+            <a href="{% url 'admin:index' %}">Admin Panel</a><br>
+        </p>
+    {% endif %}
+
+        <p>
+            <a href="#">Edit user details</a><br>
+            <a href="{% url 'logout' %}">Logout</a><br>
+        </p>
+
+    {% else %}
+        <a href="{% url 'login' %}">Login</a><br>
+        <a href="{% url 'signup' %}">Signup</a><br>
+    {% endif %}
+
+    <p><a href="{% url 'home' %}">Return home</a></p>
+{% endblock 'page-content' %}
