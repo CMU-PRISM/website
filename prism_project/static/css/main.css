@@ -20,6 +20,7 @@
         3.4. Users
     4. Footer
     5. Sidenav
+    6. IFrames
 
 ------------------------------------------------------ */
 
@@ -256,4 +257,22 @@
 
     #sidenav a {
         border: none;
+    }
+
+/* ------------------------------------------------------
+    6. IFrames
+------------------------------------------------------ */
+
+    #weekly-cal {
+        width: 100%;
+        height: 650px;
+        border: 0;
+        overflow: hidden;
+    }
+
+    #daily-cal {
+        width: 100%;
+        height: 650px;
+        border: 0;
+        overflow: hidden;
     }
