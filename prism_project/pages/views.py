@@ -15,7 +15,7 @@ def index(request): # ./pages/
 def page_viewer(request, title="404"):
     # default to page's 404
     if title == "404":
-        return render(request, 'page/404.html')
+        return render(request, 'pages/404.html')
     context = {
         'page': Page.objects.get(title=title.lower())
     }

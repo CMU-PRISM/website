@@ -15,7 +15,7 @@ def index(request): # ./updates/
 def update_viewer(request, title="404"):
     # default to update's 404
     if title == "404":
-        return render(request, 'update/404.html')
+        return render(request, 'updates/404.html')
     context = {
         'update': Update.objects.get(title=title.lower())
     }
