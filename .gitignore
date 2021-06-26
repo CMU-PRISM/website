@@ -132,3 +132,7 @@ dmypy.json
 migrations/
 secretkey.txt
 .sqlite3
+
+# Other
+.save
+update.sh
