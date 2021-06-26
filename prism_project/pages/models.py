@@ -8,7 +8,7 @@ from string import capwords
 
 class Page(models.Model):
     title = models.CharField(max_length=64, unique=True, validators=[validate_unicode_slug]) # title of page
-    content = MarkdownxField() # interpret Markdownx to page
+    content = MarkdownxField(help_text="Find basic syntax tips at https://www.markdownguide.org/basic-syntax/") # interpret Markdownx to page
     date_modified = models.DateTimeField(default=timezone.now) # only keep the date and time of the most recent page update
     desc = models.TextField(default="default description", max_length=256) # short description of page for directory
     
