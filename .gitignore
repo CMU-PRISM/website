@@ -131,8 +131,8 @@ dmypy.json
 # Django db backend
 migrations/
 secretkey.txt
-<<<<<<< HEAD
 .sqlite3
-=======
-.sqlite3
->>>>>>> meta
+
+# Other
+.save
+update.sh
