@@ -195,7 +195,8 @@
             width: 48px;
         }
 
-        .sidenav li {
+        
+        #sidenav li {
             margin: 0;
         }
 
