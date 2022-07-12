@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.core.validators import validate_unicode_slug
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
-from prism_project import settings
 from string import capwords
 
 class Update(models.Model):
@@ -16,6 +15,9 @@ class Update(models.Model):
     
     def __eq__(self, other):
         return self.title == other.title and self.content == other.content and self.date_modified == other.date_modified
+
+    def __hash__(self):
+        return super().__hash__()
     
     def formatted_markdown(self):
         return markdownify(self.content)
