@@ -15,3 +15,11 @@ class Door(models.Model):
             return "CLOSED as of %s" % time
         else:
             return "DOOR STATUS UNKNOWN"
+    
+    def status(self):
+        if self.is_open == 1:
+            return "open"
+        elif self.is_open == 0:
+            return "closed"
+        else:
+            return "UNKNOWN"
