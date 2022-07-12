@@ -5,6 +5,19 @@
 
 {% block title %}Users Crashpage{% endblock title %}
 
+{% block 'door-status' %}
+    <form method="post" action="/door-toggle">
+        {% csrf_token %}
+        {% if door.status == "open" %}
+            <input type="submit" class="nav-item btn nav-status open" value="SoHo is {{ door.status }}"/>
+        {% elif door.status == "closed" %}
+            <input type="submit" class="nav-item btn nav-status closed" value="SoHo is {{ door.status }}"/>
+        {% else %}
+            <input type="submit" class="nav-item btn nav-status" value="SoHo is {{ door.status }}"/>
+        {% endif %}
+    </form>
+{% endblock 'door-status' %}
+
 {% block 'app-content' %}
     <body>
         <!-- Page Content -->

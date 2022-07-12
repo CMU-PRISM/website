@@ -1,9 +1,22 @@
 <!-- Django code to add this html to ../base.html -->
 {% extends "base.html" %}
 
-{% block title %} PRISM - Updates Directory {% endblock title %}
+{% block title %}PRISM - Updates Directory{% endblock title %}
 
-{% block description %}Directory of all currently available updates of days past.{% endblock description%}
+{% block description %}Directory of all currently available updates of days past.{% endblock description %}
+
+{% block 'door-status' %}
+    <form method="post" action="/door-toggle">
+        {% csrf_token %}
+        {% if door.status == "open" %}
+            <input type="submit" class="nav-item btn nav-status open" value="SoHo is {{ door.status }}"/>
+        {% elif door.status == "closed" %}
+            <input type="submit" class="nav-item btn nav-status closed" value="SoHo is {{ door.status }}"/>
+        {% else %}
+            <input type="submit" class="nav-item btn nav-status" value="SoHo is {{ door.status }}"/>
+        {% endif %}
+    </form>
+{% endblock 'door-status' %}
 
 <div class="row">
     <div class="col-12">
