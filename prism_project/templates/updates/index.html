@@ -1,11 +1,19 @@
-<!-- Django code to add this html to updates-base.html -->
-{% extends "updates/updates-base.html" %}
+<!-- Django code to add this html to ../base.html -->
+{% extends "base.html" %}
 
-{% block 'update-content' %}
-    <h1>Page Directory<h1>
-    {% for update in updates %}
-        <h3 style="display:inline">{{ update.pretty_title }}</h3> | Posted: {{ update.date_modified }}
-        <p>{{ update.formatted_markdown|safe }}</p>
-        <hr style="border-color:#597081">
-    {% endfor %}
-{% endblock 'update-content' %}
+{% block title %} PRISM - Updates Directory {% endblock title %}
+
+{% block description %}Directory of all currently available updates of days past.{% endblock description%}
+
+<div class="row">
+    <div class="col-12">
+        {% block 'app-content' %}
+            <h1>Update History<h1>
+            {% for update in updates %}
+                <h3 style="display:inline">{{ update.pretty_title }}</h3> | Posted: {{ update.date_modified }}
+                <p>{{ update.formatted_markdown|safe }}</p>
+                <hr style="border-color:#597081">
+            {% endfor %}
+        {% endblock 'app-content' %}
+    </div>
+</div>

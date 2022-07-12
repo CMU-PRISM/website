@@ -1,5 +1,5 @@
-from django.apps import apps
 from django.shortcuts import render
+from django.apps import apps
 
 # Load model dynamically to avoid circular import issues
 DoorModel = apps.get_model('core', 'Door')

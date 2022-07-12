@@ -1,23 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Update
+from django.apps import apps
+
+UpdateModel = apps.get_model('updates', "Update")
 
 # Create your views here.
 
 # Take user requests to ./functionName
 def index(request): # ./updates/
     context = {
-        'updates': Update.objects.all()
+        
+        'updates': UpdateModel.objects.order_by('-date_modified')
     }
     print(context)
     return render(request, 'updates/index.html', context)
-
-def update_viewer(request, title="404"):
-    # default to update's 404
-    if title == "404":
-        return render(request, 'updates/404.html')
-    context = {
-        'update': Update.objects.get(title=title.lower())
-    }
-    #return render(request, 'update/x.html', context)
-    return render(request, 'update/update-view.html', context)
