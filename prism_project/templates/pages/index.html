@@ -6,6 +6,8 @@
     {% for page in pages %}
         <h3 style="display:inline"><a href="{{ page.title }}">{{ page.pretty_title }}</a></h3> | Last Updated: {{ page.date_modified }}
         <p>{{ page.desc }}</p>
-        <hr style="border-color:#343a40">
+        {% if page != finalPage %}
+            <hr style="border-color:#597081">
+        {% endif %}
     {% endfor %}
 {% endblock 'page-content' %}
