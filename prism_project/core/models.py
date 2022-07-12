@@ -14,4 +14,4 @@ class Door(models.Model):
         elif self.is_open == 0:
             return "CLOSED as of %s" % time
         else:
-            return " DOOR STATUS UNKNOWN"
+            return "DOOR STATUS UNKNOWN"
