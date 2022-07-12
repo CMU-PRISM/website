@@ -1,13 +1,17 @@
-from updates.models import Update
-from .models import Door
+from django.apps import apps
 from django.shortcuts import render
+
+# Load model dynamically to avoid circular import issues
+DoorModel = apps.get_model('core', 'Door')
+UpdateModel = apps.get_model('updates', "Update")
 
 # Create your views here.
 
 def index(request): # homepage
     # context being the most recent update
+
     context = {
-        'update': Update.objects.order_by('-date_modified')[0],
-        'door': Door.objects.all()[0],
+        'update': UpdateModel.objects.order_by('-date_modified').first(),
+        'door': DoorModel.objects.order_by('-date_modified').first,
     }
     return render(request, 'core/index.html', context)
