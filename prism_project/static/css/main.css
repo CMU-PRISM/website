@@ -107,7 +107,7 @@
             text-decoration: none;
         }
 
-        input, textarea {
+        .user-login-input {
             background: #fff;
             border: 1px solid rgba(0,0,0,.35);
             font-size: 1em;
@@ -115,7 +115,6 @@
             padding: .35em .5em;
             position: relative;
             display: inline-block;
-            max-width: calc(100% - 6px - .5em);
         }
 
         p {
@@ -175,6 +174,32 @@
             margin-bottom: 1em;
         }
 
+        .nav-status {
+            background-color: rgb(255, 255, 204);
+            margin-right: 1em;
+            border: 0.5px solid var(--eBlue);
+        }
+        
+        .nav-status:hover {
+            background-color: rgb(255, 255, 144);
+        }
+
+        .nav-status.open {
+            background-color: rgb(204, 255, 204);
+        }
+
+        .nav-status.open:hover {
+            background-color: rgb(144, 255, 144);
+        }
+
+        .nav-status.closed {
+            background-color: rgb(255, 204, 204);
+        }
+
+        .nav-status.closed:hover {
+            background-color: rgb(255, 144, 144);
+        }
+
         .bg-eBlue {
         background-color: var(--eBlue);
         }
@@ -195,7 +220,6 @@
             width: 48px;
         }
 
-        
         #sidenav li {
             margin: 0;
         }
@@ -242,6 +266,16 @@
             border-radius: 10px;
 
             margin-bottom: 1em;
+        }
+
+        .door-status-button {
+            margin-bottom: 1em;
+            background-color: #dddddd86;
+        }
+
+        .door-status-button:hover {
+            background-color: #dddddd;
+            border: 0.5px solid var(--eBlue);
         }
 
     /* ------------------------------------------------------
