@@ -12,6 +12,6 @@ def index(request): # homepage
 
     context = {
         'update': UpdateModel.objects.order_by('-date_modified').first(),
-        'door': DoorModel.objects.order_by('-date_modified').first,
+        'door': DoorModel.objects.order_by('-date_modified').first(),
     }
     return render(request, 'core/index.html', context)
