@@ -4,7 +4,6 @@ from django.utils import timezone
 from django.core.validators import validate_unicode_slug
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
-from prism_project import settings
 from string import capwords
 
 class Page(models.Model):
