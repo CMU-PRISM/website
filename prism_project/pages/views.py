@@ -11,13 +11,15 @@ PageModel = apps.get_model('pages', "Page")
 def index(request): # ./pages/
     context = {
         'pages': PageModel.objects.order_by('-date_modified'),
-        'finalPage': PageModel.objects.order_by('-date_modified').last()
+        'finalPage': PageModel.objects.order_by('-date_modified').last(),
+        'page_navbar': PageModel.objects.filter(show_in_navbar = True),
     }
     return render(request, 'pages/index.html', context)
 
 def page_viewer(request, title):
     context = {
-        'page': PageModel.objects.get(title=title.lower())
+        'page': PageModel.objects.get(title=title.lower()),
+        'page_navbar': PageModel.objects.filter(show_in_navbar = True),
     }
     #return render(request, 'pages/x.html', context)
     return render(request, 'pages/page-view.html', context)
