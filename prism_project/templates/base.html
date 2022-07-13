@@ -57,6 +57,7 @@
 
                         <!-- Navbar Right Side -->
                         <nav class="navbar-nav">
+                            {% block 'door-status' %}{% endblock 'door-status' %}
                             {% if user.is_active %}
                                 <span style="color:white;">Welcome, <a id="user-link" class="nav-item nav-link" href="{% url 'profile' %}">{{ user.get_first_name }}</a></span>
                                 {% if user.is_staff %}
