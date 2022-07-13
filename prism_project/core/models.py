@@ -15,3 +15,4 @@ class Door(models.Model):
             return "CLOSED as of %s" % time
         else:
             return "DOOR STATUS UNKNOWN"
+            

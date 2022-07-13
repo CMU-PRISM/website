@@ -134,3 +134,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         permissions = (
             ('can_open', "Can mark room as open/closed"),
         )
+        
