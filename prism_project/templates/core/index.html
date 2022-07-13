@@ -48,20 +48,15 @@
                 {% endif %}
             </div>
             <ul id="sidenav" class="list-group d-none d-md-block">
+                {% if page_sidenav %}
+                    {% for sidenavItem in page_sidenav %}
+                        <li class="list-group-item">
+                            <a href="/pages/{{ sidenavItem.title }}">{{ sidenavItem.pretty_title }}</a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
                 <li class="list-group-item">
-                    <a href="/pages/affinity">Affinity Groups</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="/pages/open-hours">Open Hours</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="/pages/resources">Resources</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="/pages/activism">Activism</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="/pages/social">Social</a>
+                    <a href="{% url 'pages-index' %}">Page Directory</a>
                 </li>
                 <li class="list-group-item">
                     <a href="{% url 'updates-index' %}">Update History</a>

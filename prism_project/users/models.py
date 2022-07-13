@@ -119,7 +119,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return '{} <{}>'.format(self.get_full_name(), self.email)
     
-
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
@@ -134,3 +133,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         permissions = (
             ('can_open', "Can mark room as open/closed"),
         )
+        

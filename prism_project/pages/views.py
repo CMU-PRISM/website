@@ -13,6 +13,7 @@ def index(request): # ./pages/
     context = {
         'pages': PageModel.objects.order_by('-date_modified'),
         'finalPage': PageModel.objects.order_by('-date_modified').last(),
+        'page_navbar': PageModel.objects.filter(show_in_navbar = True),
         'door': DoorModel.objects.order_by('-date_modified').first(),
     }
     return render(request, 'pages/index.html', context)
@@ -20,6 +21,7 @@ def index(request): # ./pages/
 def page_viewer(request, title):
     context = {
         'page': PageModel.objects.get(title=title.lower()),
+        'page_navbar': PageModel.objects.filter(show_in_navbar = True),
         'door': DoorModel.objects.order_by('-date_modified').first(),
     }
     #return render(request, 'pages/x.html', context)
