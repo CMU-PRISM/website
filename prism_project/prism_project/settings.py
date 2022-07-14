@@ -16,6 +16,10 @@ DEBUG = False
 # Django needs to know what the server can be hosted on. For now, this will be the final website, the local machine, and a wild card, for debug purposes only.
 ALLOWED_HOSTS = ['prism.andrew.cmu.edu', 'prism-02.club.cc.cmu.edu', 'localhost', "*" if DEBUG else ""]
 
+ADMINS = [
+    ('Casey Rodriguez', 'itscaseyr+PRISM@gmail.com'),
+    ('PRISM Exec', 'prism+web@andrew.cmu.edu'),
+]
 
 # Application definition
 
@@ -136,3 +140,40 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media-root')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'django.server': {
+            '()': 'django.utils.log.ServerFormatter',
+            'format': '[{server_time}] {message}',
+            'style': '{',
+        }
+    },
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'formatter': 'django.server',
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': 'True',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file',],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['file', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
