@@ -73,6 +73,7 @@
         
         html, body {
             color: var(--rich-black);
+            margin-bottom: 15vh;
         }
 
         /* Mobile visitors should see Roboto (Android), Helvetica (iOS), or the browser's default sans-serif. */
