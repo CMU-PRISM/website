@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.apps import apps
 
 # Load model dynamically to avoid circular import issues
@@ -20,7 +20,7 @@ def index(request): # ./pages/
 
 def page_viewer(request, title):
     context = {
-        'page': PageModel.objects.get(title=title.lower()),
+        'page': get_object_or_404(PageModel, title=title.lower()),
         'page_navbar': PageModel.objects.filter(show_in_navbar = True),
         'door': DoorModel.objects.order_by('-date_modified').first(),
     }
