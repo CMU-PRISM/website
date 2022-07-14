@@ -7,7 +7,7 @@
 
 {% block 'page-content' %}
     <h3>{{ page.pretty_title }}</h3>
-    
+    <hr>
     <!-- Displays content parsing markdown into html. Makes writing pages easier for end users. -->
     <p>{{ page.formatted_markdown|safe }}</p>
 {% endblock 'page-content' %}
