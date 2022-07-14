@@ -17,9 +17,11 @@ DEBUG = False
 ALLOWED_HOSTS = ['prism.andrew.cmu.edu', 'prism-02.club.cc.cmu.edu', 'localhost', "*" if DEBUG else ""]
 
 ADMINS = [
-    ('Casey Rodriguez', 'itscaseyr+PRISM@gmail.com'),
+    ('Casey Rodriguez', 'itscaseyr@gmail.com'),
     ('PRISM Exec', 'prism+web@andrew.cmu.edu'),
 ]
+
+SERVER_EMAIL = "prism@andrew.cmu.edu"
 
 # Application definition
 
