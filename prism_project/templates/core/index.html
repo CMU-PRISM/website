@@ -30,21 +30,59 @@
         <!-- Hide sidenav on medium or smaller screens -->
         <div class="col-md-4">
             <div id="index-img" class="d-none d-md-block"></div>
-            <div id="door-status-indicator">
-                <p>PRISM is located in 'SoHo', room 335 of the Cohen University Center. Come stop on by!</p>
-                <p>SoHo is currently <span id="door-status">{{ door }}</span></p>
-                
-                {% if perms.core.change_door %}
-                    <form method="post" action="/door-toggle">
-                        {% csrf_token %}
-                        {% if door.status == "open" %}
+            {% if door.get_status  == "open" %}
+                <div class="door-status-indicator open">
+                    <p>PRISM is located in 'SoHo', room 335 of the Cohen University Center. Come stop on by!</p>
+                    <p>SoHo is currently <span id="door-status">{{ door }}</span></p>
+                    
+                    {% if perms.core.change_door %}
+                        <form method="post" action="/door-close">
+                            {% csrf_token %}
                             <input type="submit" class="door-status-button btn" value="Close SoHo"/>
-                        {% else %}
+                        </form>
+                        
+                        <form method="post" action="/door-busy">
+                            {% csrf_token %}
+                            <input type="submit" class="door-status-button btn" value="Mark SoHo Busy"/>
+                        </form>
+                    {% endif %}
+                </div>
+            {% elif door.get_status == "closed" %}
+                <div class="door-status-indicator closed">
+                    <p>PRISM is located in 'SoHo', room 335 of the Cohen University Center. Come stop on by!</p>
+                    <p>SoHo is currently <span id="door-status">{{ door }}</span></p>
+                    
+                    {% if perms.core.change_door %}
+                        <form method="post" action="/door-open">
+                            {% csrf_token %}
                             <input type="submit" class="door-status-button btn" value="Open SoHo"/>
-                        {% endif %}
-                    </form>
-                {% endif %}
-            </div>
+                        </form>
+                        
+                        <form method="post" action="/door-busy">
+                            {% csrf_token %}
+                            <input type="submit" class="door-status-button btn" value="Mark SoHo Busy"/>
+                        </form>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="door-status-indicator">
+                    <p>PRISM is located in 'SoHo', room 335 of the Cohen University Center. Come stop on by!</p>
+                    <p>SoHo is currently <span id="door-status">{{ door }}</span></p>
+                    
+                    {% if perms.core.change_door %}
+                        <form method="post" action="/door-open">
+                            {% csrf_token %}
+                            <input type="submit" class="door-status-button btn" style="display:inline" value="Open SoHo"/>
+                        </form>
+
+                        <form method="post" action="/door-close">
+                            {% csrf_token %}
+                            <input type="submit" class="door-status-button btn" value="Close SoHo"/>
+                        </form>
+                    {% endif %}
+                </div>
+            {% endif %}
+
             <ul id="sidenav" class="list-group d-none d-md-block">
                 {% if page_sidenav %}
                     {% for sidenavItem in page_sidenav %}
@@ -78,5 +116,4 @@
 
 {% block 'js' %}
     <script src="{% static 'js/img-adjust.js' %}"></script>
-    <script src="{% static 'js/door-box.js' %}"></script>
 {% endblock 'js' %}

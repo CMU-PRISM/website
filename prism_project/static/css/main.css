@@ -260,13 +260,22 @@
             width: 100%;
         }
 
-        #door-status-indicator {
+        .door-status-indicator {
             padding: 1em;
             padding-bottom: 0em;
             border: 0.5px solid var(--eBlue);
             border-radius: 10px;
+            background-color: rgb(255, 255, 204);
 
             margin-bottom: 1em;
+        }
+
+        .door-status-indicator.open{
+            background-color: rgb(204, 255, 204);
+        }
+
+        .door-status-indicator.closed {
+            background-color: rgb(255, 204, 204);
         }
 
         .door-status-button {

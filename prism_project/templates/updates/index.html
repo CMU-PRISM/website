@@ -7,16 +7,22 @@
 
 {% block 'door-status' %}
     {% if user.is_active and perms.core.change_door %}
-        <form method="post" action="/door-toggle">
-            {% csrf_token %}
-            {% if door.status == "open" %}
-                <input type="submit" class="nav-item btn nav-status open" value="SoHo is {{ door.status }}"/>
-            {% elif door.status == "closed" %}
-                <input type="submit" class="nav-item btn nav-status closed" value="SoHo is {{ door.status }}"/>
-            {% else %}
-                <input type="submit" class="nav-item btn nav-status" value="SoHo is {{ door.status }}"/>
-            {% endif %}
-        </form>
+        {% if door.status == "open" %}
+            <form method="post" action="/door-busy">
+                {% csrf_token %}
+                <input type="submit" class="nav-item btn nav-status open" value="SoHo is {{ door.get_status }}"/>
+            </form>
+        {% elif door.status == "closed" %}
+            <form method="post" action="/door-open">
+                {% csrf_token %}
+                <input type="submit" class="nav-item btn nav-status closed" value="SoHo is {{ door.get_status }}"/>
+            </form>
+        {% else %}
+            <form method="post" action="/door-close">
+                {% csrf_token %}
+                <input type="submit" class="nav-item btn nav-status" value="SoHo is {{ door.get_status }}"/>
+            </form>
+        {% endif %}
     {% else %}
         {% if door.status == "open" %}
             <span class="nav-item btn nav-status open">SoHo is {{ door.status }}</span>

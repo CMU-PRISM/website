@@ -7,6 +7,12 @@ from .forms import CustomUserCreationForm
 
 PageModel = apps.get_model('pages', "Page")
 DoorModel = apps.get_model('core', 'Door')
+# Take user requests to ./functionName
+def index(request): # ./users/profile
+    context = {
+        'door': DoorModel.objects.order_by('-date_modified').first(),
+    }
+    return render(request, 'users/profile.html', context)
 
 class SignUp(CreateView):
     form_class = CustomUserCreationForm
@@ -14,9 +20,8 @@ class SignUp(CreateView):
     template_name = 'users/signup.html'
 
 
-# Take user requests to ./functionName
-def index(request): # ./users/profile
+def editPass(request):
     context = {
         'door': DoorModel.objects.order_by('-date_modified').first(),
     }
-    return render(request, 'users/profile.html', context)
+    if request.method == 'POST':

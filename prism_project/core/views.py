@@ -22,18 +22,32 @@ def index(request): # homepage
     }
     return render(request, 'core/index.html', context)
 
-def doorToggle(request):
+def doorOpen(request):
     if request.method == 'POST':
         door = DoorModel.objects.order_by('-date_modified').first()
     
-    # Open door if closed, close if open, close if unknown
-        if door.is_open == 1:
-            door.is_open = 0
-        elif door.is_open == 0:
-            door.is_open = 1
-        else:
-            door.is_open = 0
+        door.status = 'open'
         door.date_modified = timezone.now()
         door.save()
 
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+def doorClose(request):
+    if request.method == 'POST':
+        door = DoorModel.objects.order_by('-date_modified').first()
+    
+        door.status = 'closed'
+        door.date_modified = timezone.now()
+        door.save()
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+def doorBusy(request):
+    if request.method == 'POST':
+        door = DoorModel.objects.order_by('-date_modified').first()
+    
+        door.status = 'busy'
+        door.date_modified = timezone.now()
+        door.save()
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
