@@ -21,7 +21,7 @@ def signup(request):
         f = CustomUserCreationForm(request.POST)
         if f.is_valid():
             f.save()
-            messages.success(request, 'Account created successfully')
+            messages.success(request, 'Account created successfully. Please wait for a site admin to activate your account. Message the current webmaster for faster results.')
             return redirect('signup')
     else:
         f = CustomUserCreationForm
