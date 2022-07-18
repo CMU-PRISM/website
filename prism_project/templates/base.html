@@ -61,7 +61,7 @@
                         <nav class="navbar-nav">
                             {% block 'door-status' %}{% endblock 'door-status' %}
                             {% if user.is_active %}
-                                <span style="color:white;">Welcome, <a id="user-link" class="nav-item nav-link" href="{% url 'profile' %}">{{ user.get_first_name }}</a></span>
+                                <span style="color:white;">Welcome, <a id="user-link" class="nav-item nav-link" href="{% url 'profile' %}">{{ user.get_id }}</a></span>
                                 {% if user.is_staff %}
                                     <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
                                 {% endif %}
