@@ -23,7 +23,7 @@ def index(request): # homepage
     return render(request, 'core/index.html', context)
 
 def doorOpen(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.has_perm('core.change_door'):
         door = DoorModel.objects.order_by('-date_modified').first()
     
         door.status = 'open'
@@ -33,7 +33,7 @@ def doorOpen(request):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def doorClose(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.has_perm('core.change_door'):
         door = DoorModel.objects.order_by('-date_modified').first()
     
         door.status = 'closed'
@@ -43,7 +43,7 @@ def doorClose(request):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def doorBusy(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.has_perm('core.change_door'):
         door = DoorModel.objects.order_by('-date_modified').first()
     
         door.status = 'busy'
