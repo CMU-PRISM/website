@@ -11,6 +11,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 with open(os.path.join(BASE_DIR, 'secretkey.txt')) as f:
     SECRET_KEY = f.read().strip()
 
+with open(os.path.join(BASE_DIR, 'botpassword.txt')) as f:
+    BOT_PASSWORD = f.read().strip()
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 # Django needs to know what the server can be hosted on. For now, this will be the final website, the local machine, and a wild card, for debug purposes only.
@@ -56,7 +59,7 @@ SESSION_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 

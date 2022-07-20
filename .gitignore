@@ -131,6 +131,7 @@ dmypy.json
 # Django db backend
 migrations/
 secretkey.txt
+botpassword.txt
 .sqlite3
 
 # Other
